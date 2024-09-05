@@ -22,6 +22,8 @@ h1 {
 }
 
 p {
+    font-size: inherit;
+    color: inherit;
     background-color: grey;
     text-align: center;
 }
@@ -54,6 +56,8 @@ nav ul li {
 }
 
 nav ul li a {
+    font-size: inherit;
+    color: inherit;
     display: block;
     padding: 8px 8px;
     text-decoration: none;
@@ -78,8 +82,9 @@ nav ul li a {
 }
 
 .assignDrop {
+    font-size: inherit;
+    color: inherit;
     background-color: grey;
-    color: white;
     cursor: pointer;
     border: none;
     padding: 8px 8px;
