@@ -1,5 +1,7 @@
+<!-- webpage name and basic view for mobile and website -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,39 +12,63 @@
         }
     </style>
     <title>COP 4813</title>
+    <script src="/script.js/js.dropdown"></script>
     <link rel="stylesheet" href="external css/styles.css">
 </head>
+<!-- welcome page -->
+
 <body>
     <header>
         <nav>
             <ul>
+                <!-- all 15 pages and dropdown -->
                 <li><a href="index.html">Home</a></li>
-                <li><a href="page2.html">page 2</a></li>
+
+                <li><a href="aboutme.html">About Me</a></li>
+
+                <li class="dropdown">
+                    <button class="assignDrop" onclick="dropMenu()">Assignments</button>
+                    <div id="dropMenu" class="buttonDrop">
+                        <a href="assignment1.html">Assignment 1</a>
+                        <a href="assignment2.html">Assignment 2</a>
+                        <a href="assignment3.html">Assignment 3</a>
+                        <a href="assignment4.html">Assignment 4</a>
+                        <a href="assignment5.html">Assignment 5</a>
+                        <a href="assignment6.html">Assignment 6</a>
+                        <a href="assignment7.html">Assignment 7</a>
+                        <a href="assignment8.html">Assignment 8</a>
+                        <a href="assignment9.html">Assignment 9</a>
+                        <a href="assignment10.html">Assignment 10</a>
+                        <a href="assignment11.html">Assignment 11</a>
+                        <a href="assignment12.html">Assignment 12</a>
+                        <a href="assignment13.html">Assignment 13</a>
+                        <a href="assignment14.html">Assignment 14</a>
+                        <a href="assignment15.html">Assignment 15</a>
+                    </div>
+                </li>
+
             </ul>
         </nav>
     </header>
+    <header> </header>
     <main>
         <section>
+            <!-- header and small discription -->
+
             <h1> Welcome page for COP 4813</h1>
-            <p> Hello, this is my website and where I am going to be 
-                posting all assignments for COP 4813. I look forward to 
+
+            <p> Hello, this is my website and where I am going to be
+                posting all assignments for COP 4813. I look forward to
                 working with you all.
+
+                <img src="img/mt.fugi.jpg" alt="mountain" class="center">
             </p>
-            <img src="img/mt.fugi.jpg" alt="mountain" class="center">
-            </section>
-        </section>
+
     </main>
     <footer>
-        <section>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="page2.html">page 2</a></li>
-                </ul>
-            </nav>
-        </section>
         <p>Copyright &copy; Gerardo Galarza</p>
     </footer>
-    
+
 </body>
+
 </html>
