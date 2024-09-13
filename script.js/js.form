@@ -1,0 +1,97 @@
+// used to help https://www.geeksforgeeks.org/form-validation-using-javascript/ as
+//  reference
+
+document
+  .getElementById("userInfo")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // From values
+    let firstName = document.forms["myForm"]["firstName"].value;
+    let lastName = document.forms["myForm"]["lastName"].value;
+    let address = document.forms["myForm"]["address"].value;
+    let state = document.forms["myForm"]["state"].value;
+    let zip = document.forms["myForm"]["zip"].value;
+    let phoneNum = document.forms["myForm"]["phoneNum"].value;
+    let email = document.forms["myForm"]["email"].value;
+    let birth = document.forms["myForm"]["birth"].value;
+    let message = document.forms["myForm"]["message"].value;
+    let question = document.forms["myForm"]["question"].value;
+
+    let errors = [];
+
+    // Validation checks
+    if (firstName === "") errors.push("Firstname");
+    if (lastName === "") errors.push("Lastname");
+    if (address === "") errors.push("Address");
+    if (phoneNum === "") errors.push("Phone Number");
+    if (email === "") errors.push("Email");
+    if (birth === "") errors.push("Birth Date");
+    if (message === "") errors.push("Message");
+    if (question === "" || question !== "10")
+      errors.push("Security Question is either empty or value is incorrect");
+
+    if (errors.length > 0) {
+      alert("Feild is inccorrect or not filled in: " + errors.join(", "));
+      return false;
+    }
+
+    if (!validateEmail(email)) {
+      alert("Invalid email format");
+      return false;
+    }
+
+    if (address === "" || state === "" || zip === "") {
+      alert("Address, State, Zip Code must all be filled out correctly");
+      return false;
+    }
+    if (!/^\d{5}$/.test(zip)) {
+      alert("Invalid Zip Code format (must be 5 digits)");
+      return false;
+    }
+
+    if (phoneNum.length !== 10 || !/^\d{10}$/.test(phoneNum)) {
+      alert(
+        "Phone number must be exactly 10 digits without dashes or parentheses"
+      );
+      return false;
+    }
+
+    if (!validateBirth(birth)) {
+      alert("Invalid Birth Format or under 18 years of age");
+      return false;
+    }
+
+    if (confirm("Please review your form and confirm you want to submit")) {
+      alert("Form submitted successfully!");
+      document.getElementById("userInfo").submit();
+    } else {
+      alert("Form submission canceled.");
+    }
+  });
+
+// Email format validation function
+function validateEmail(email) {
+  const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return re.test(email);
+}
+
+function validateBirth(birth) {
+  let birthDate = new Date(birth);
+  let today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+
+  let monthDiff = today.getMonth() - birthDate.getMonth();
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && today.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+
+  if (isNaN(birthDate.getTime()) || age < 18) {
+    return false;
+  }
+
+  return true;
+}

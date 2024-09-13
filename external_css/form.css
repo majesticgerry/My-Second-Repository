@@ -1,0 +1,55 @@
+form {
+    width: 400px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0 auto;
+    box-sizing: border-box;
+    color: black
+}
+
+form div {
+    margin-bottom: 10px;
+
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+
+}
+
+form input[type="text"],
+form input[type="date"] {
+    width: calc(100% - 12px);
+    padding: 5px;
+    box-sizing: border-box;
+
+}
+
+.postalCode {
+    display: flex;
+    gap: 10px;
+}
+
+.postalCode div {
+    display: flex;
+    flex-direction: column;
+}
+
+.postalCode input {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    width: calc(100% - 12px);
+    height: 100px;
+    padding: 5px;
+    box-sizing: border-box;
+    resize: vertical;
+    overflow: auto;
+}
+
+#address {
+    width: 200px;
+}
