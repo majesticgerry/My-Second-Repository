@@ -1,12 +1,13 @@
-// used to help https://www.geeksforgeeks.org/form-validation-using-javascript/ as
-//  reference
+// javascript for A3
+// make a user form doc
+// used https://www.geeksforgeeks.org/form-validation-using-javascript/
 
 document
   .getElementById("userInfo")
   .addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // From values
+    // form values
     let firstName = document.forms["myForm"]["firstName"].value;
     let lastName = document.forms["myForm"]["lastName"].value;
     let address = document.forms["myForm"]["address"].value;
@@ -20,7 +21,7 @@ document
 
     let errors = [];
 
-    // Validation checks
+    // validation checks
     if (firstName === "") errors.push("Firstname");
     if (lastName === "") errors.push("Lastname");
     if (address === "") errors.push("Address");
@@ -31,8 +32,9 @@ document
     if (question === "" || question !== "10")
       errors.push("Security Question is either empty or value is incorrect");
 
+    // alerts for incorrect format
     if (errors.length > 0) {
-      alert("Feild is inccorrect or not filled in: " + errors.join(", "));
+      alert("Value is inccorrect or not filled in: " + errors.join(", "));
       return false;
     }
 
@@ -62,20 +64,22 @@ document
       return false;
     }
 
+    // confirm submit
     if (confirm("Please review your form and confirm you want to submit")) {
-      alert("Form submitted successfully!");
+      alert("Form submitted.");
       document.getElementById("userInfo").submit();
     } else {
-      alert("Form submission canceled.");
+      alert("Submission canceled.");
     }
   });
 
-// Email format validation function
+// email validation
 function validateEmail(email) {
   const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   return re.test(email);
 }
 
+// birthday validation over 18yrs
 function validateBirth(birth) {
   let birthDate = new Date(birth);
   let today = new Date();

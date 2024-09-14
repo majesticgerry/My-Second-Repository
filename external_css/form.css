@@ -1,3 +1,6 @@
+/* css for A3 */
+
+/* form */
 form {
     width: 400px;
     padding: 10px;
@@ -26,6 +29,7 @@ form input[type="date"] {
 
 }
 
+/* address box */
 .postalCode {
     display: flex;
     gap: 10px;
@@ -41,6 +45,11 @@ form input[type="date"] {
     box-sizing: border-box;
 }
 
+#address {
+    width: 200px;
+}
+
+/* box for message */
 form textarea {
     width: calc(100% - 12px);
     height: 100px;
@@ -48,8 +57,4 @@ form textarea {
     box-sizing: border-box;
     resize: vertical;
     overflow: auto;
-}
-
-#address {
-    width: 200px;
 }

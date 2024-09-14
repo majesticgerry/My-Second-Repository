@@ -1,7 +1,9 @@
+// javacrpit for A2
+// make dropdown
+//used https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_dropdown_navbar_click
+
 function dropMenu(menuId) {
   var dropdown = document.getElementById(menuId);
 
   dropdown.classList.toggle("show");
 }
-
-//used https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_dropdown_navbar_click
