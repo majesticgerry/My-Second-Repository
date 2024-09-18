@@ -1,1 +1,22 @@
 /* css for A4 */
+
+.plotFunction {
+    width: 400px;
+    padding: 10px;
+    border: 5px solid #463f3a;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    color: black
+}
+
+.plotFunction div {
+    margin-bottom: 10px;
+
+}
+
+.plotFunction label {
+    display: block;
+    margin-bottom: 5px;
+
+}

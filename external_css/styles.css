@@ -9,16 +9,15 @@ html {
     color: white;
     background-color: white;
     border: 3px solid black;
-
 }
 
 body {
     max-width: 1000px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 h1 {
-    background-color: grey;
+    background-color: #463f3a;
     text-align: center;
     margin: auto;
 }
@@ -26,7 +25,7 @@ h1 {
 p {
     font-size: inherit;
     color: inherit;
-    background-color: grey;
+    background-color: #463f3a;
     text-align: center;
 }
 
@@ -40,7 +39,7 @@ p {
 
 /* navigation menu */
 nav {
-    background-color: grey;
+    background-color: #463f3a;
     overflow: visible;
     margin-bottom: 20px;
 }
@@ -64,7 +63,7 @@ nav ul li a {
     padding: 8px 8px;
     text-decoration: none;
     color: white;
-    background-color: grey;
+    background-color: #463f3a;
 }
 
 /* Dropdown */
@@ -86,7 +85,7 @@ nav ul li a {
 .assignDrop {
     font-size: inherit;
     color: inherit;
-    background-color: grey;
+    background-color: #463f3a;
     cursor: pointer;
     border: none;
     padding: 8px 8px;

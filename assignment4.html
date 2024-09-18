@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="external_css/styles.css">
     <link rel="stylesheet" href="external_css/plot.css">
     <script src="script.js/js.plot"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -21,19 +23,37 @@
             </ul>
         </nav>
     </header>
-    <h1>
-        Creating Plots
-    </h1>
+
     <!-- summary of assignment -->
-    <p>In this assignment you are going to create a Javascript calculator
+    <!-- In this assignment you are going to create a Javascript calculator
         that also has plotting capability. You can choose to use a mathematical
         expression for this or a practical example of solving an engineering or
-        technical problem.
-    </p>
+        technical problem. -->
 
 
+    <!-- start, function inputs for user -->
+    <p>Exponential Growth calculator <br> f(x) = a(1+r)^x</p>
 
+    <!-- inputs for exponential growth a,r,x -->
+    <div class="plotFunction">
 
+        <label for="initialAmount">a (Initial Amount): </label>
+        <input id="a" name="a" type="text" value="1">
+
+        <label for="growthRate">r (Growth Rate %): </label>
+        <input id="r" name="r" type="text" value="3">
+
+        <label for="timeInterval">x (Time Interval): </label>
+        <input id="x" name="x" type="text" value="5">
+
+        <br /><br />
+
+        <input type="button" value="Calculate" id="calculate" />
+        <input type="button" value="Plot" id="plot" />
+    </div>
+
+    <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto">
+    </div>
 
     <footer>
         <p>Copyright &copy; Gerardo Galarza</p>
