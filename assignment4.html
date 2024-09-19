@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="external_css/styles.css">
     <link rel="stylesheet" href="external_css/plot.css">
     <script src="script.js/js.plot"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.highcharts.com/11.4.8/highcharts.js"></script>
 
 </head>
 
@@ -37,23 +37,25 @@
     <!-- inputs for exponential growth a,r,x -->
     <div class="plotFunction">
 
-        <label for="initialAmount">a (Initial Amount): </label>
-        <input id="a" name="a" type="text" value="1">
+        a (Initial Amount):<br>
+        <input id="a" name="a" type="text" value="1"><br>
 
-        <label for="growthRate">r (Growth Rate %): </label>
-        <input id="r" name="r" type="text" value="3">
+        r (Growth Rate):<br>
+        <input id="r" name="r" type="text" value="10"><br>
 
-        <label for="timeInterval">x (Time Interval): </label>
-        <input id="x" name="x" type="text" value="5">
+        x (Time Interval):<br>
+        <input id="x" name="x" type="text" value="20"><br>
 
         <br /><br />
-
+        <!-- buttons -->
         <input type="button" value="Calculate" id="calculate" />
         <input type="button" value="Plot" id="plot" />
     </div>
 
-    <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto">
-    </div>
+    <!-- displaying results -->
+    <div id="resultDisplay" style="font-weight: bold; margin-top: 20px;"></div>
+    <div id="valueDisplay"></div>
+    <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 
     <footer>
         <p>Copyright &copy; Gerardo Galarza</p>
