@@ -1,0 +1,44 @@
+// A.5 draw spriograph
+// used https://www.w3schools.com/html/html5_canvas.asp
+
+// circle radius
+var R = 150; // large radius
+var r = 4; // small radius
+var O = 100; // offest
+
+// spiro function
+function drawSpiro() {
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  ctx.clearRect(0, 0, c.width, c.height);
+
+  var t = 0;
+  var prevX = null;
+  var prevY = null;
+  var centerX = c.width / 2;
+  var centerY = c.height / 2;
+
+  //color
+  ctx.strokeStyle = "blue";
+  ctx.translate(centerX, centerY);
+
+  // loop for spriograph
+  for (var i = 0; i < 10000; i++) {
+    // equation from A.5 discritption
+    var x = (R + r) * Math.cos(t) - (r + O) * Math.cos(((R + r) / r) * t);
+    var y = (R + r) * Math.sin(t) - (r + O) * Math.sin(((R + r) / r) * t);
+
+    if (i > 0) {
+      ctx.beginPath();
+      ctx.moveTo(prevX, prevY);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+    }
+
+    prevX = x;
+    prevY = y;
+
+    // line size
+    t += 0.01;
+  }
+}

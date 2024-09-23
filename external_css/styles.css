@@ -29,6 +29,11 @@ p {
     text-align: center;
 }
 
+p1 {
+    font-size: inherit;
+    color: black;
+}
+
 .center {
     display: block;
     margin-left: auto;
