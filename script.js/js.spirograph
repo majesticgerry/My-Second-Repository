@@ -1,44 +1,63 @@
 // A.5 draw spriograph
 // used https://www.w3schools.com/html/html5_canvas.asp
 
-// circle radius
-var R = 150; // large radius
-var r = 4; // small radius
-var O = 100; // offest
+var R = 120; // large circle radius
+var r = 3; // small circle radius
+var O = 20; // offset distance
+var t = 0; // angle in radians
+var prevX = null;
+var prevY = null;
+var animationId; // ID for animation frame
 
-// spiro function
-function drawSpiro() {
+// draw and animate the spirograph
+function startSpiro() {
   var c = document.getElementById("myCanvas");
   var ctx = c.getContext("2d");
   ctx.clearRect(0, 0, c.width, c.height);
+  ctx.strokeStyle = "blue"; // color
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.translate(c.width / 2, c.height / 2);
 
-  var t = 0;
-  var prevX = null;
-  var prevY = null;
-  var centerX = c.width / 2;
-  var centerY = c.height / 2;
+  prevX = null;
+  prevY = null;
+  t = 0;
 
-  //color
-  ctx.strokeStyle = "blue";
-  ctx.translate(centerX, centerY);
+  if (animationId) {
+    cancelAnimationFrame(animationId);
+  }
 
-  // loop for spriograph
-  for (var i = 0; i < 10000; i++) {
-    // equation from A.5 discritption
-    var x = (R + r) * Math.cos(t) - (r + O) * Math.cos(((R + r) / r) * t);
-    var y = (R + r) * Math.sin(t) - (r + O) * Math.sin(((R + r) / r) * t);
+  drawSpiro(ctx);
+}
 
-    if (i > 0) {
-      ctx.beginPath();
-      ctx.moveTo(prevX, prevY);
-      ctx.lineTo(x, y);
-      ctx.stroke();
-    }
+// animate the spirograph
+function drawSpiro(ctx) {
+  // equations for the spirograph
+  var x = (R + r) * Math.cos(t) - (r + O) * Math.cos(((R + r) / r) * t);
+  var y = (R + r) * Math.sin(t) - (r + O) * Math.sin(((R + r) / r) * t);
 
-    prevX = x;
-    prevY = y;
+  if (prevX !== null && prevY !== null) {
+    ctx.beginPath();
+    ctx.moveTo(prevX, prevY);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  }
 
-    // line size
-    t += 0.01;
+  prevX = x;
+  prevY = y;
+
+  // speed of line
+  t += 0.01;
+
+  // random lines
+  r += 2 * Math.random() - 1; // change between -1 and 1
+  R += 2 * Math.random() - 1; // change between -1 and 1
+
+  // makes animation stop
+  if (t < 50) {
+    animationId = requestAnimationFrame(function () {
+      drawSpiro(ctx);
+    });
+  } else {
+    cancelAnimationFrame(animationId); // stop the animation
   }
 }
