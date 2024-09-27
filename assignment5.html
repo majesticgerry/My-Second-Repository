@@ -22,13 +22,23 @@
 
     <!-- spirograph start -->
 
-    <p1>Spirograph A.5</p1>
+    <!-- user input -->
+    <p1>
+        R (Outer Radius):<br>
+        <input id="R" name="R" type="text" value="100"><br>
 
-    <br /><br />
+        r (Inner Radius):<br>
+        <input id="r" name="r" type="text" value="1"><br>
 
+        O (Offset):<br>
+        <input id="O" name="O" type="text" value="60"><br>
+    </p1>
+
+    <!-- spirograph button and canvas -->
     <button onclick="startSpiro();">Draw Spirograph</button>
     <br /><br />
     <canvas id="myCanvas" width="600" height="600" style="border:3px solid black;"></canvas>
+
 
     <footer>
         <p>Copyright &copy; Gerardo Galarza</p>
