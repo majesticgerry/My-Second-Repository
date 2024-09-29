@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>6</title>
     <link rel="stylesheet" href="external_css/styles.css">
+
 </head>
 
 <body>
@@ -17,9 +18,112 @@
             </ul>
         </nav>
     </header>
-    <h1>
-        Holding Page
-    </h1>
+    <p1> Fantasy Football Players and Scores Week 4<br><br></p1>
+
+    <!-- table for data -->
+    <table border="1" id="fantasy-table">
+        <thead>
+            <tr>
+                <th>Players</th>
+                <th>Team</th>
+                <th>Position</th>
+                <th>Projected Points</th>
+                <th>Earned Points</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <!-- myjson data -->
+    <script type="text/javascript">
+        let fantasy = [
+            {
+                "player": "Joe Burrow",
+                "team": "Bengals",
+                "position": "QB",
+                "projected": 18.7,
+                "earned": 15.84
+            },
+            {
+                "player": "Jonathan Taylor",
+                "team": "Colts",
+                "position": "RB",
+                "projected": 17.9,
+                "earned": 19.8
+            },
+            {
+                "player": "Kyren Williams",
+                "team": "Rams",
+                "position": "RB",
+                "projected": 19,
+                "earned": 20.4
+            },
+            {
+                "player": "Garrett Wilson",
+                "team": "Jets",
+                "position": "WR",
+                "projected": 13.7,
+                "earned": 7.1
+            },
+            {
+                "player": "Rashee Rice",
+                "team": "Chiefs",
+                "position": "WR",
+                "projected": 19.4,
+                "earned": null
+            },
+            {
+                "player": "Dallas Goedert",
+                "team": "Eagles",
+                "position": "TE",
+                "projected": 12.1,
+                "earned": 13.2
+            },
+            {
+                "player": "Stefon Diggs",
+                "team": "Bills",
+                "position": "Flex/WR",
+                "projected": 14.6,
+                "earned": 18.5
+            },
+            {
+                "player": "Detroit Lions",
+                "team": "Lions",
+                "position": "D/ST",
+                "projected": 5.8,
+                "earned": null
+            },
+            {
+                "player": "Younghoe Koo",
+                "team": "Falcons",
+                "position": "K",
+                "projected": 7.8,
+                "earned": 20
+            }
+        ];
+
+        // https://forum.freecodecamp.org/t/looping-through-json-data-to-populate-a-table/297467
+        let tableBody = document.querySelector("#fantasy-table tbody");
+
+        // loop through array
+        fantasy.forEach(function (player) {
+            let row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${player.player}</td>
+                <td>${player.team}</td>
+                <td>${player.position}</td>
+                <td>${player.projected}</td>
+                <td>${player.earned !== null ? player.earned : "N/A"}</td>
+            `;
+
+            // append body and row
+            tableBody.appendChild(row);
+        });
+    </script>
+
+    </p1>
+
 
 </body>
 

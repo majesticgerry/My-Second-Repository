@@ -1,0 +1,65 @@
+[
+    {
+        "player": "Joe Burrow",
+        "team": "Bengals",
+        "position": "QB",
+        "projected": 18.7,
+        "earned": 15.84
+    },
+    {
+        "player": "Jonathan Taylor",
+        "team": "Colts",
+        "position": "RB",
+        "projected": 17.9,
+        "earned": 19.8
+    },
+    {
+        "player": "Kyren Williams",
+        "team": "Rams",
+        "position": "RB",
+        "projected": 19,
+        "earned": 20.4
+    },
+    {
+        "player": "Garrett Wilson",
+        "team": "Jets",
+        "position": "WR",
+        "projected": 13.7,
+        "earned": 7.1
+    },
+    {
+        "player":"Rashee Rice",
+        "team": "Cheifs",
+        "position": "WR",
+        "projected": 19.4,
+        "earned": null
+    },
+    {
+        "player": "Dallas Goedert",
+        "team": "Eagles",
+        "position": "TE",
+        "projected": 12.1,
+        "earned": 13.2
+    },
+    {
+        "player": "Stefon Diggs",
+        "team": "Texans",
+        "position": "WR",
+        "projected": 14.6,
+        "earned": 18.5
+    },
+    {
+        "player": "Detroit Lions",
+        "team": "Lions",
+        "position": "D/ST",
+        "projected": 5.8,
+        "earned": null
+    },
+    {
+        "player": "Younghoe Koo",
+        "team": "Falcons",
+        "position": "K",
+        "projected": 7.8,
+        "earned": 20
+    }
+]
