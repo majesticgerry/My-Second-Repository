@@ -1,0 +1,68 @@
+// A.7 js for cards
+
+document.addEventListener("DOMContentLoaded", () => {
+  // gets cards from folder
+  function generateDeck() {
+    const suits = ["c", "d", "h", "s"]; // clubs, diamonds, hearts, spades
+    const suitFolders = {
+      c: "clubs",
+      d: "diamonds",
+      h: "hearts",
+      s: "spades",
+    };
+    const deck = [];
+
+    suits.forEach((suit) => {
+      for (let i = 1; i <= 13; i++) {
+        deck.push({ suit, number: i }); // push cards in folder
+      }
+    });
+
+    return deck;
+  }
+
+  // function for shuffle https://www.frankmitchell.org/2015/01/fisher-yates/
+  function shuffleDeck(deck) {
+    for (let i = deck.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+    return deck;
+  }
+
+  // deals 5 random cards
+  function dealCards() {
+    let deck = generateDeck();
+    deck = shuffleDeck(deck);
+    return deck.slice(0, 5);
+  }
+
+  // displays cards under Card Container
+  function displayCards(cards) {
+    const container = document.getElementById("cardContainer");
+    container.innerHTML = ""; // clear cards
+
+    cards.forEach((card) => {
+      const suitFolders = {
+        c: "clubs",
+        d: "diamonds",
+        h: "hearts",
+        s: "spades",
+      };
+
+      // file path for cards
+      const cardImg = document.createElement("img");
+      cardImg.src = `img/DeckOfCards/${suitFolders[card.suit]}/${card.suit}${
+        card.number
+      }.png`;
+      cardImg.alt = `${suitFolders[card.suit]} ${card.number}`;
+      container.appendChild(cardImg);
+    });
+  }
+
+  // deal 5 cards button
+  document.getElementById("dealButton").addEventListener("click", () => {
+    const randomHand = dealCards();
+    displayCards(randomHand);
+  });
+});

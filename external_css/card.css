@@ -1,0 +1,19 @@
+#cardContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#cardContainer img {
+    width: 100px;
+    /* Adjust size as needed */
+    height: auto;
+    border: 2px solid #333;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#dealButton {
+    cursor: pointer;
+}
