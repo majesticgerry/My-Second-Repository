@@ -65,4 +65,84 @@ document.addEventListener("DOMContentLoaded", () => {
     const randomHand = dealCards();
     displayCards(randomHand);
   });
+
+  // create card images
+  function displayCards(cards) {
+    const container = document.getElementById("cardContainer");
+    container.innerHTML = ""; // clear cards
+    droppedCardsCount = 0; // reset card count
+
+    // call cards
+    cards.forEach((card, index) => {
+      const suitFolders = {
+        c: "clubs",
+        d: "diamonds",
+        h: "hearts",
+        s: "spades",
+      };
+
+      // create image element for the card
+      const cardImg = document.createElement("img");
+      cardImg.src = `img/DeckOfCards/${suitFolders[card.suit]}/${card.suit}${
+        card.number
+      }.png`;
+      cardImg.alt = `${suitFolders[card.suit]} ${card.number}`;
+      cardImg.style.width = "100px"; // size of card to normal
+      cardImg.draggable = true; // makes card dragable
+      cardImg.id = `card${index}`; // give each card an ID for drag/drop
+
+      // add dragstart
+      cardImg.addEventListener("dragstart", handleDragStart);
+
+      container.appendChild(cardImg);
+    });
+  }
+
+  // function for drag start event
+  function handleDragStart(e) {
+    e.dataTransfer.setData("text/plain", e.target.id); // Store the dragged card's ID
+  }
+
+  // function for when the card is dragged over the drop area
+  function handleDragOver(e) {
+    e.preventDefault();
+  }
+
+  // function for the drop event
+  function handleDrop(e) {
+    e.preventDefault();
+    const cardId = e.dataTransfer.getData("text/plain");
+    const cardElement = document.getElementById(cardId);
+
+    // append the card to the drop area
+    e.target.appendChild(cardElement);
+
+    // increment drop card count
+    droppedCardsCount += 1;
+
+    // check if all 5 cards in drop area
+    if (droppedCardsCount === 5) {
+      setTimeout(() => {
+        alert("All 5 cards placed in the box!!!");
+      }, 300);
+    }
+  }
+
+  // function to reset the drop area and new cards
+  function resetBoard() {
+    const dropArea = document.getElementById("dropArea");
+    dropArea.innerHTML = ""; // clear drop area
+  }
+
+  // event listener for the "Deal Cards" button
+  document.getElementById("dealButton").addEventListener("click", () => {
+    resetBoard(); // reset drop area
+    const randomHand = dealCards();
+    displayCards(randomHand);
+  });
+
+  // set up drop area
+  const dropArea = document.getElementById("dropArea");
+  dropArea.addEventListener("dragover", handleDragOver); // dragover event
+  dropArea.addEventListener("drop", handleDrop); // drop event
 });

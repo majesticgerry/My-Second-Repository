@@ -16,3 +16,19 @@
 #dealButton {
     cursor: pointer;
 }
+
+h2 {
+    color: black;
+    margin: auto;
+    text-align: center;
+}
+
+#dropArea {
+    width: 300px;
+    height: 150px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightyellow;
+}
