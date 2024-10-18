@@ -1,0 +1,65 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById("myCanvas");
+  const ctx = canvas.getContext("2d");
+
+  let x = canvas.width / 3;
+  let y = canvas.height / 5;
+  let sx = 2; // speed for x
+  let sy = 2; // speed for y
+  let ballSize = 20;
+  let ballSpeed = 1;
+
+  // function for ball animation
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // clear the canvas
+    ctx.beginPath();
+    ctx.arc(x, y, ballSize, 0, 2 * Math.PI); // draw ball
+    ctx.fillStyle = "#0095DD"; // blue ball color
+    ctx.fill();
+    ctx.closePath();
+
+    // ball speed
+    x += sx * ballSpeed;
+    y += sy * ballSpeed;
+
+    // collision with canvas edges and random direction
+    if (x + ballSize > canvas.width) {
+      x = canvas.width - ballSize;
+      sx = randomDirection();
+    } else if (x - ballSize < 0) {
+      x = ballSize;
+      sx = randomDirection(); // randomize x direction
+    }
+
+    if (y + ballSize > canvas.height) {
+      y = canvas.height - ballSize;
+      sy = randomDirection();
+    } else if (y - ballSize < 0) {
+      y = ballSize;
+      sy = randomDirection(); // randomize y direction
+    }
+
+    // animation
+    requestAnimationFrame(draw);
+  }
+
+  // Function to increase the speed when the button is clicked
+  window.speedUp = function () {
+    ballSpeed += 2; // Increase speed by 1 each time button is clicked
+  };
+
+  // function random speed for direction
+  function randomDirection() {
+    const minSpeed = 2; // minimum speed
+    let direction = Math.random() * 4 - 2;
+
+    // minimum speed
+    if (Math.abs(direction) < minSpeed) {
+      direction = direction < 0 ? -minSpeed : minSpeed; // min speed
+    }
+    return direction;
+  }
+
+  // start the animation
+  draw();
+});
