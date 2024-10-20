@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // function random speed for direction
   function randomDirection() {
     const minSpeed = 2; // minimum speed
-    let direction = Math.random() * 4 - 2;
+    let direction = Math.random() * 10 - 5;
 
     // minimum speed
     if (Math.abs(direction) < minSpeed) {
