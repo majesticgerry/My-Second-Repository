@@ -3,7 +3,7 @@ theme*/
 
 html {
     font-size: 20px;
-    font-display: swap;
+    font-display: optional;
     line-height: 100px, 1.5rem;
     color: black;
     background-color: white;
@@ -45,10 +45,11 @@ p1 {
 }
 
 img.center {
-    transform: scale();
     width: 100%;
     max-width: 500px;
-    height: auto;
+    height: 300px;
+    /* Set a reasonable height based on the aspect ratio */
+    object-fit: cover;
 }
 
 
