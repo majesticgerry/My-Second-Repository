@@ -36,7 +36,7 @@ p1 {
 }
 
 .center {
-    transform: scale(1);
+    transform: scale();
     width: 100%;
     max-width: 500px;
     height: auto;
