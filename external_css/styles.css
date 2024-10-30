@@ -36,23 +36,18 @@ p1 {
 }
 
 .center {
-    transform: scale();
+    transform: scale(1);
     width: 100%;
     max-width: 500px;
-    /* Define a max width that fits well in your layout */
     height: auto;
-    /* This keeps the aspect ratio */
 }
 
 img.center {
     width: 100%;
     max-width: 500px;
     height: 300px;
-    /* Set a reasonable height based on the aspect ratio */
     object-fit: cover;
 }
-
-
 
 /* navigation menu */
 nav {
@@ -61,6 +56,7 @@ nav {
     background-color: #463f3a;
     overflow: visible;
     margin-bottom: 20px;
+    min-height: 20px;
 }
 
 nav ul {
@@ -97,6 +93,7 @@ nav ul li a {
     border: none;
     z-index: 9999;
     max-height: 200px;
+    min-height: 20px;
     overflow: auto;
 
 }
