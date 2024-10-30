@@ -3,8 +3,7 @@ theme*/
 
 html {
     font-size: 100%;
-    font-family: Arial, Helvetica,
-        sans-serif;
+    font-display: swap;
     line-height: 100px, 1.5rem;
     color: black;
     background-color: white;
@@ -12,8 +11,13 @@ html {
 }
 
 body {
+    min-height: 100vh;
+    /* Ensures body always has full viewport height */
     max-width: 1000px;
+    max-height: 1000px;
     margin: 0 auto;
+
+    /* Small padding to ensure content doesn't touch edges */
 }
 
 h1 {
@@ -24,14 +28,14 @@ h1 {
 }
 
 p {
-    font-size: inherit;
+    font-size: 20px;
     color: white;
     background-color: #463f3a;
     text-align: center;
 }
 
 p1 {
-    font-size: inherit;
+    font-size: 20px;
     color: black;
 }
 
@@ -39,8 +43,22 @@ p1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 100%;
+    max-width: 500px;
+    /* Define a max width that fits well in your layout */
+    height: auto;
+    /* This keeps the aspect ratio */
 }
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
 
 
 /* navigation menu */
@@ -101,4 +119,9 @@ nav ul li a {
 
 .buttonDrop.show {
     display: block;
+}
+
+
+footer {
+    padding: 20px 0;
 }

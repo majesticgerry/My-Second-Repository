@@ -5,19 +5,25 @@
 <html lang="en">
 
 <head>
+    <title>COP 4813</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+    <!-- added descritption -->
+    <meta name="description" content="Moblie Friendly Page">
+    <!-- <style>
         img {
-            width: 40%;
-            height: auto;
-        }
+            transform: scale();
+        } -->
     </style>
-    <title>COP 4813</title>
-    <script src="/script.js/js.dropdown"></script>
-    <link rel="stylesheet" href="external_css/styles.css">
+    <link rel="preload" href="external_css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="external_css/styles.css">
+    </noscript>
+
+    <script src="script.js/js.dropdown" async></script>
 </head>
 <!-- welcome page -->
+
 
 <body>
     <header>
@@ -82,8 +88,9 @@
             posting all assignments for COP 4813. I look forward to
             working with you all.
 
-            <img src="img/capybara.png" alt="CapyBara" class="center">
+            <img src="img/capybara.webp" alt="Capybara" class="center" width="500" height="500">
         </p>
+
     </main>
 
     <footer>
