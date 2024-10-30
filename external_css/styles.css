@@ -12,12 +12,8 @@ html {
 
 body {
     min-height: 100vh;
-    /* Ensures body always has full viewport height */
-    max-width: 1000px;
-    max-height: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
-
-    /* Small padding to ensure content doesn't touch edges */
 }
 
 h1 {
@@ -59,6 +55,7 @@ img.center {
 
 /* navigation menu */
 nav {
+    font-size: 20px;
     color: white;
     background-color: #463f3a;
     overflow: visible;
@@ -119,5 +116,6 @@ nav ul li a {
 
 
 footer {
+    font-size: 20px;
     padding: 20px 0;
 }
