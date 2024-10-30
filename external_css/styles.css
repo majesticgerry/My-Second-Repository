@@ -2,7 +2,7 @@
 theme*/
 
 html {
-    font-size: 100%;
+    font-size: 20px;
     font-display: swap;
     line-height: 100px, 1.5rem;
     color: black;
@@ -40,9 +40,7 @@ p1 {
 }
 
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    transform: scale();
     width: 100%;
     max-width: 500px;
     /* Define a max width that fits well in your layout */
@@ -51,9 +49,7 @@ p1 {
 }
 
 img.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    transform: scale();
     width: 100%;
     max-width: 500px;
     height: auto;
@@ -82,7 +78,7 @@ nav ul li {
 }
 
 nav ul li a {
-    font-size: inherit;
+    font-size: 20px;
     color: inherit;
     display: block;
     padding: 8px 8px;
@@ -108,7 +104,7 @@ nav ul li a {
 }
 
 .assignDrop {
-    font-size: inherit;
+    font-size: 20px;
     color: inherit;
     background-color: #463f3a;
     cursor: pointer;
