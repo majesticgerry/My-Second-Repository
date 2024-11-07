@@ -1,0 +1,70 @@
+// a.11 dyanmic object
+// https://daytonastate.smartcatalogiq.com/en/2024-2025/college-catalog/program-guides/a-s-degree/culinary-management-a-s-degree/
+
+// fetch the JSON file
+fetch("myclass.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const courseList = data.myclass;
+    const tableBody = document.querySelector("#courseList tbody");
+
+    //course table rows and checkboxes
+    courseList.forEach((course, index) => {
+      const row = document.createElement("tr");
+      const prefixCell = document.createElement("td");
+      const nameCell = document.createElement("td");
+      const statusCell = document.createElement("td");
+
+      prefixCell.textContent = course.course;
+      nameCell.textContent = course.name;
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.id = course.course;
+      checkbox.dataset.prereqs = JSON.stringify(course.PreReq || []);
+      checkbox.disabled = course.PreReq !== null;
+
+      // check prerequisites
+      checkbox.addEventListener("click", () => {
+        // taken: green , needed: lightyellow
+        row.classList.toggle("taken", checkbox.checked);
+        row.classList.remove("needed");
+        checkCourses(courseList);
+      });
+
+      statusCell.appendChild(checkbox);
+
+      row.appendChild(prefixCell);
+      row.appendChild(nameCell);
+      row.appendChild(statusCell);
+
+      // untaken: red
+      row.classList.add(course.PreReq ? "untaken" : "needed");
+      tableBody.appendChild(row);
+    });
+  });
+
+// prerequisites check or uncheck
+function checkCourses(courseList) {
+  courseList.forEach((course) => {
+    const courseCheckbox = document.getElementById(course.course);
+    const row = courseCheckbox.closest("tr");
+
+    if (course.PreReq) {
+      const prereqsMet = course.PreReq.every((prereq) => isChecked(prereq));
+      courseCheckbox.disabled = !prereqsMet;
+
+      // prerequisites checked then change to light yellow
+      if (prereqsMet && !courseCheckbox.checked) {
+        row.classList.add("needed");
+        row.classList.remove("untaken");
+      }
+    }
+  });
+}
+
+// check if a prerequisite is met
+function isChecked(courseId) {
+  const checkbox = document.getElementById(courseId);
+  return checkbox && checkbox.checked;
+}

@@ -1,0 +1,109 @@
+{
+    "myclass": [
+        {
+            "course": "ENC1101",
+            "name": "Introduction to Composition",
+            "PreReq": null
+        },
+        {
+            "course": "MAT0022",
+            "name": "Integrated Arithmetic and Algebra",
+            "PreReq": null
+        },
+        {
+            "course": "MGF2130",
+            "name": "Mathematical Thinking",
+            "PreReq": ["MAT0022"]
+        },
+        {
+            "course": "HUM2020",
+            "name": "Introduction to Humanities",
+            "PreReq": ["ENC1101"]
+        },
+        {
+            "course": "AMH2020",
+            "name": "United States History 1865 to Present",
+            "PreReq": ["ENC1101"]
+        },
+        {
+            "course": "FOS1201",
+            "name": "Sanitation and Safety",
+            "PreReq": null
+        },
+        {
+            "course": "FSS1202C",
+            "name": "Food Production I and Lab",
+            "PreReq": ["FOS1201"]
+        },
+        {
+            "course": "FSS1222C",
+            "name": "Food Production II and Lab",
+            "PreReq": ["FOS1201" , "FSS1202C"]
+        },
+        {
+            "course": "HFT1000",
+            "name": "Introduction to Hospitality Industry",
+            "PreReq" : null
+        },
+        {
+            "course": "BSC1005",
+            "name": "Survey of Biological Sciences (For Non-Science Majors)",
+            "PreReq":null
+        },
+        {
+            "course": "FSS1063C",
+            "name": "Baking and Lab",
+            "PreReq" :["FOS1201"]
+        },
+        {
+            "course": "FSS2284C",
+            "name": "Catering and Buffet Management and Lab",
+            "PreReq": ["FSS1222C"]
+        },
+        {
+            "course": "HFT1940C",
+            "name": "Hospitality Practicum I (Basic) and Lab",
+            "PreReq":["FSS1222C"]
+        },
+        {
+            "course": "HFT1941C",
+            "name": "Hospitality Practicum II (Intermediate) and Lab",
+            "PreReq": ["FSS1222C","HFT1940C"]
+        },
+        {
+            "course": "FSS1240C",
+            "name": "Contemporary American Cuisine and Lab",
+            "PreReq": ["FSS1222C"]
+        },
+        {
+            "course": "HFT2282",
+            "name": "Hospitality Supervision",
+            "PreReq":null
+        },
+        {
+            "course": "HFT2454",
+            "name": "Hospitality Purchasing and Controls",
+            "PreReq": ["HFT2282"]
+        },
+        {
+            "course": "FSS1270",
+            "name": "Introduction to Craft Beer and Wine",
+            "PreReq" : null
+        },
+        {
+            "course": "FSS2210C",
+            "name": "Food Production III and lab",
+            "PreReq": ["FSS1222C"]
+        },
+        {
+            "course": "FSS1242C",
+            "name": "International Cuisine and lab",
+            "PreReq": ["FSS1222C"]
+        },
+        {
+            "course": "HFT2942C",
+            "name": "Hospitality Practicum III (Advanced) and Lab",
+            "PreReq": ["FSS1222C"]
+        }
+    ]
+}
