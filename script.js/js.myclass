@@ -1,5 +1,6 @@
 // a.11 dyanmic object
 // https://daytonastate.smartcatalogiq.com/en/2024-2025/college-catalog/program-guides/a-s-degree/culinary-management-a-s-degree/
+// used as reference https://jsfiddle.net/reaglin/ehvgu5tv/
 
 // fetch the JSON file
 fetch("myclass.json")
