@@ -1,0 +1,52 @@
+let selectedAmount = 0;
+let isZelleAvailable = false; // Flag to indicate Zelle availability
+
+function selectAmount(button, amount) {
+  selectedAmount = amount;
+  $(".donation-options button").removeClass("selected");
+  $(button).addClass("selected");
+  $(".other-donation input").val("");
+}
+
+function handleCustomAmount(input) {
+  const value = input.value;
+  if (value) {
+    selectedAmount = parseFloat(value.replace("$", "")) || 0;
+    $(".donation-options button").removeClass("selected");
+  } else {
+    selectedAmount = 0;
+  }
+}
+
+function showCreditCardForm() {
+  $(".credit-card-form").show();
+  $(".paypal-login").hide();
+  $(".other-info").hide();
+}
+
+function showPayPalLogin() {
+  $(".paypal-login").show();
+  $(".credit-card-form").hide();
+  $(".other-info").hide();
+}
+
+function showZelleQRCode() {
+  $("#zelleQRCode").html("");
+  $("#zelleError").hide();
+
+  if (isZelleAvailable) {
+    $("#zelleQRCode").qrcode({
+      text: "mailto:abc@email.com",
+      width: 150,
+      height: 150,
+    });
+    $("#zelleModal").css("display", "flex");
+  } else {
+    $("#zelleError").show();
+    $("#zelleModal").css("display", "flex");
+  }
+}
+
+function closeModal() {
+  $("#zelleModal").css("display", "none");
+}

@@ -1,17 +1,19 @@
+<!-- bassically the same on this from other page -GG -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Marine Corps League</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Board</title>
     <link href="external_css/styles1.css" rel="stylesheet" type="text/css" />
+    <link href="external_css/notice.css" rel="stylesheet" type="text/css" />
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-
-
 </head>
+
+<!-- copied and pasted from welcome page, dont want to change too much -GG -->
 
 <body class="mclbody">
 
@@ -65,29 +67,53 @@
 
     </div>
 
+    <!-- facebook and notice board -GG -->
     <div class="main-content">
-        <div class="container"> <!-- make this the welcome page -GG -->
-            <!-- we will need to ask what the name is again and info -GG -->
 
+        <div class="grid-container">
+            <!-- type inside to change things -->
+            <div class="notice-container">Notice board ---------</div>
+            <div class="notice-container">Notice board ---------</div>
+            <div class="notice-container">Notice board ---------</div>
+            <div class="notice-container">Notice board ---------</div>
         </div>
-        <h1>Welcome to the Platoon Page (#####)</h1>
-        <p>Intro page</p>
-        <img src="img/MCL_Logo_BWRG.png" alt="logo" class="center" width="500" height="500">
+
+        <div class="facebook-container">>
+            <!-- facebook plugin -->
+            <!-- https://developers.facebook.com/docs/plugins/page-plugin/ -->
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0"></script>
+            <!-- links to Galarza's Facebook page with his consent -->
+            <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=61567466350954" data-tabs="timeline"
+                data-width="800" data-height="1000" data-small-header="false" data-adapt-container-width="false"
+                data-hide-cover="false" data-show-facepile="false">
+                <blockquote cite="https://www.facebook.com/profile.php?id=61567466350954" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/profile.php?id=61567466350954">Test webystems</a>
+                </blockquote>
+            </div>
+        </div>
+
     </div>
 
 
+
+
+    </div>
+    <script>
+        let menu = document.querySelector('#menu');
+        let sidebar = document.querySelector('.sidebar');
+
+        menu.onclick = function () {
+            sidebar.classList.toggle('active');
+        }
+    </script>
+
+
 </body>
+
 <div class="footer">
     <p class="copyright">&copy; Created by Stanislav Fomin, Gerardo Galarza, Yiping Zheng</p>
 </div>
-
-<script>
-    let menu = document.querySelector('#menu');
-    let sidebar = document.querySelector('.sidebar');
-
-    menu.onclick = function () {
-        sidebar.classList.toggle('active');
-    }
-</script>
 
 </html>

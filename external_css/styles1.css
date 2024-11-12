@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+.logo-img {
+    width: 50px;
+    border-radius: 100%;
+    margin-right: 5px;
+    text-align: inherit;
+}
+
+
+/* Sidebar menu */
+
+.sidebar {
+    position: fixed;
+    background-color: #001e2e;
+    top: 0;
+    left: 0;
+    min-height: 200px;
+    height: 100%;
+    width: 80px;
+    padding: 0.4rem 0.8rem;
+    z-index: 99;
+    transition: all 0.5s ease;
+}
+
+.sidebar span {
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.sidebar.active~.main-content {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar.active {
+    width: 250px;
+}
+
+.sidebar #menu {
+    position: absolute;
+    color: #FDD017;
+    top: 0.4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active #menu {
+    left: 93%;
+}
+
+.sidebar .top .logo {
+    color: #FDD017;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.sidebar.active .top .logo {
+    opacity: 1;
+    transition: 1s;
+}
+
+.top .logo i {
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+    white-space: nowrap;
+}
+
+.sidebar ul li a {
+    color: #FDD017;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+    line-height: 10px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #FDD017;
+    color: #001e2e;
+    transition: 0.5s;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    top: -20px;
+    left: calc(100% + 20px);
+    z-index: 3;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0.6rem;
+    padding: 6px 12px;
+    transition: 0s;
+    opacity: 0;
+    background-color: #660000;
+    color: #FDD017;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.sidebar ul li:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.5s ease;
+    top: 50%;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+/* Body content */
+
+.main-content {
+    position: relative;
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+    padding: 1rem;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.containerHead {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #660000;
+    color: #FDD017;
+    padding: 30px;
+    text-align: center;
+    font-size: 30px;
+    text-align: center;
+}
+
+.containerBody1 {
+    display: block;
+    max-width: 800px;
+    max-height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #660000;
+    color: #ffffff;
+    margin: 20px;
+    padding: 20px;
+    text-align: left;
+}
+
+
+/* colors so I can see text -GG */
+p {
+
+    color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    color: white;
+}
+
+.container {
+    position: relative;
+    justify-content: space-between;
+    background-color: #660000;
+    text-align: center;
+}
+
+.header {
+    width: 100%;
+    background-color: #001e2e;
+    color: #FDD017;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1rem;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #001e2e;
+    color: #FDD017;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.copyright {
+    margin: 0;
+    color: #FDD017;
+}
+
+
+.container {
+    background-color: #3C4151;
+    padding: 20px;
+    color: #000;
+    font-size: 24px;
+}
+
+.donate-btn {
+    display: block;
+    /* Ensures it occupies a new line */
+    background-color: #001e2e;
+    color: #FDD017;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-align: center;
+    margin: 20px auto;
+    /* Centers the button */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.donate-btn:hover {
+    background-color: #FDD017;
+    color: #001e2e;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+}
+
+
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+/* Chaplain's Corner */
+
+#chapForm {
+    background-color: #001e2e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    margin-bottom: 60px;
+    width: 80%;
+    max-width: 600px;
+}
+
+#chapForm h1 {
+    color: #ffffff;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 2.5em;
+    line-height: 1.2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#chapForm h2 {
+    color: #ffffff;
+    font-family: Roboto;
+    font-size: 1.3em;
+    letter-spacing: 0.03em;
+    line-height: 1.2em;
+    text-align: left;
+}
+
+#chapForm label {
+    font-family: Roboto;
+    font-size: 1.2em;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#chapForm[type="text"],
+#chapForm[type="email"],
+#chapForm textarea {
+    width: 96%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    background-color: #f5f5f5;
+}
+
+.error {
+    font-family: Roboto;
+    color: red;
+    font-size: 0.9em;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+
+
+.formButtons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.formButtons input[type="button"],
+.formButtons input[type="submit"] {
+    background-color: #001e2e;
+    color: #FDD017;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.formButtons input[type="button"]:hover,
+.formButtons input[type="submit"]:hover {
+    background-color: #FDD017;
+    color: #001e2e;
+}

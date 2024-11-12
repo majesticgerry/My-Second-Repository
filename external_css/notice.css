@@ -1,0 +1,51 @@
+/* css for notice -GG*/
+
+.main-content {
+    position: relative;
+    /*added this below*/
+    display: flex;
+    background-color: black;
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+    padding: 1rem;
+    background-color: white;
+    gap: 100px
+}
+
+.facebook-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+
+.grid-container {
+    display: list-item;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    flex-grow: 1;
+    max-width: 1000px;
+    ;
+}
+
+
+.notice-container {
+    background-color: #84754E;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 150px;
+    margin-bottom: 20px;
+}
+
+p {
+
+    color: #660000;
+}

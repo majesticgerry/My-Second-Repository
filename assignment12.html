@@ -17,9 +17,54 @@
             </ul>
         </nav>
     </header>
-    <h1>
-        Holding Page
-    </h1>
+    <h2>
+        CMS research
+    </h2>
+    <!-- used from a.6 -->
+    <table border="1" id="cms-table">
+        <thead>
+            <tr>
+                <th>System</th>
+                <th>Produced/Sold by</th>
+                <th>Technology Base</th>
+                <th>Major Capabilities</th>
+                <th>Major Limitations</th>
+                <th>Example Site</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <!-- javascript to get data -->
+    <script type="text/javascript">
+        //  gets json file
+        fetch('cms.json')
+            .then(response => response.json())  // parse json points
+            .then(cms => {
+                let tableBody = document.querySelector("#cms-table tbody");
+
+                // loop for json file
+                cms.forEach(function (system) {
+                    let row = document.createElement("tr");
+
+                    row.innerHTML = `
+                    <td>${system.system}</td>
+                    <td>${system.produced}</td>
+                    <td>${system.tech}</td>
+                    <td>${system.major}</td>
+                    <td>${system.limit}</td>
+                    <td>${system.example}</td>
+                `;
+
+                    // append the row
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching the JSON file:', error);
+            });
+    </script>
+
 </body>
 
 </html>
