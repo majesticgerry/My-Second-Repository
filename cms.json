@@ -1,47 +1,47 @@
 [
     {
        "system": "Squarespace",
-       "produced": "",
-       "tech": "",
-       "major": "",
-       "limit": "",
-       "example": ""
+       "produced": "Closed Source / Squarespace, Inc",
+       "tech": "HTML / CSS / JavaScript",
+       "major": " E-commerce / Built-in photo editing capabilities / video and background banners",
+       "limit": "Can only have 1000 website pages / Limited customization options / pricey",
+       "example": "https://www.etsy.com/?ref=lgo"
     },
 
     {
         "system": "Drupal",
-        "produced": "",
-        "tech": "",
-        "major": "",
-        "limit": "",
-        "example": ""
+        "produced": "Open Source / The Drupal Association",
+        "tech": " PHP / HTML5 / YAML",
+        "major": "Content management / Simple / Flexible integration",
+        "limit": "Steeper learning curve / 50 resources per page / SQL injection",
+        "example": "https://www.ebay.com/"
      },
 
      {
         "system": "Joomla",
-        "produced": "",
-        "tech": "",
-        "major": "",
-        "limit": "",
-        "example": ""
+        "produced": "PHP / Joomla Foundation",
+        "tech": "User Manager / MySQL /  HTML, CSS, and JavaScript",
+        "major": "Compatible with all browsers / Very easy to edit (WYSIWYG) / easy to install",
+        "limit": "Plugins and modules are not free / Not much SEO / website heavy to load and run",
+        "example": "https://www.ikea.com/us/en/"
      },
 
      {
         "system": "Wix",
-        "produced": "",
-        "tech": "",
-        "major": "",
-        "limit": "",
-        "example": ""
+        "produced": "Open Source / Wix.com Ltd",
+        "tech": "React / Cloud Infrastructur / APIs",
+        "major": "Apps and integrations / Advanced SEO / E-commerce",
+        "limit": "All features behind paywall / Templates are not interchangeable / Poor loading speeds",
+        "example": "https://www.tesla.com/"
      },
 
      {
-        "system": "Sanity",
-        "produced": "",
-        "tech": "",
-        "major": "",
-        "limit": "",
-        "example": ""
+        "system": "Concrete CMS",
+        "produced": "Open Source / MIT software license",
+        "tech": "PHP",
+        "major": "Lots of helpful resources / High-end security features / SEO",
+        "limit": "Small community / Documentation is sometimes vague /  Limited number of add ons available",
+        "example": "https://flathead.mt.gov/"
      }
 
 ]
