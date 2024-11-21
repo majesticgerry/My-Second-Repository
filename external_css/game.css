@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+    background-color: black;
+}
+
+button {
+    display: none;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+}

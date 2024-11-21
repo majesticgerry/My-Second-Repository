@@ -1,0 +1,234 @@
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+const retryButton = document.getElementById("retryButton");
+
+// Meat png
+const meatImage = new Image();
+meatImage.src = "img/meat.png";
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Game base settings
+let level = 0;
+let timeSurvived = 0;
+const levelChangeTime = 10 * 1000; // 10 seconds per level
+let basePlayerSize = 50; // Starting player size
+const PLAYER_SPEED = 15;
+let bulletSpeed = 4; // Starting bullet speed
+const BULLET_FREQUENCY = 30; // Bullet spawn frequency
+
+// Game loop update for time and level tracking
+let startTime = Date.now(); // Track the start time of the game
+let lastLevelChangeTime = Date.now(); // Tracks the last time the level changed
+
+// Player
+let player = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: 40,
+  height: 40,
+  draw: function () {
+    if (meatImage.complete) {
+      ctx.drawImage(
+        meatImage,
+        this.x - this.width / 10, // Centers the meat
+        this.y - this.height / 10,
+        this.width,
+        this.height
+      );
+    }
+  },
+};
+
+let bullets = [];
+let frameCount = 0;
+
+// Player movement handling
+document.addEventListener("mousemove", (e) => {
+  if (player.isAlive) {
+    // Mouse position
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    // Center the player on the mouse position
+    player.x = Math.min(
+      Math.max(0, mouseX - player.width / 2),
+      canvas.width - player.width
+    );
+    player.y = Math.min(
+      Math.max(0, mouseY - player.height / 2),
+      canvas.height - player.height
+    );
+  }
+});
+
+// Bullet settings
+class Bullet {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = 30; // Constant bullet size
+    this.color = "#D90802";
+  }
+
+  move() {
+    this.y += bulletSpeed;
+  }
+
+  draw() {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+
+    // Draw the main vertical line (Fork's handle)
+    ctx.moveTo(this.x + this.size / 2, this.y); // Start at the top center
+    ctx.lineTo(this.x + this.size / 2, this.y + this.size); // Draw to the bottom center
+
+    // Draw left extention (where the tip comes from)
+    ctx.moveTo(this.x + this.size * 0.3, this.y + (this.size * 2) / 3);
+    ctx.lineTo(this.x + this.size / 2, this.y + (this.size * 2) / 3);
+
+    // Draw right extention (where the tip comes from)
+    ctx.moveTo(this.x + this.size * 0.7, this.y + (this.size * 2) / 3);
+    ctx.lineTo(this.x + this.size / 2, this.y + (this.size * 2) / 3);
+
+    // Draw left tip
+    ctx.moveTo(this.x + this.size * 0.3, this.y + (this.size * 2) / 3);
+    ctx.lineTo(this.x + this.size * 0.3, this.y + this.size + this.size / 3);
+
+    // Draw right tip
+    ctx.moveTo(this.x + this.size * 0.7, this.y + (this.size * 2) / 3);
+    ctx.lineTo(this.x + this.size * 0.7, this.y + this.size + this.size / 3);
+
+    // Draw center tip, extending downward
+    ctx.moveTo(this.x + this.size / 2, this.y + this.size);
+    ctx.lineTo(this.x + this.size / 2, this.y + this.size + this.size / 3);
+
+    ctx.strokeStyle = this.color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.closePath();
+  }
+
+  isOffScreen() {
+    return this.y > canvas.height;
+  }
+}
+
+// Bullet spawn with random positions
+function spawnBullet() {
+  const x = Math.random() * (canvas.width - 20); // Bullet size is 20
+  bullets.push(new Bullet(x, -20)); // Spawn off-screen at the top
+}
+
+// Check for collisions between player and bullets
+function isColliding(player, bullet) {
+  return (
+    player.x < bullet.x + bullet.size &&
+    player.x + player.width > bullet.x &&
+    player.y < bullet.y + bullet.size &&
+    player.y + player.height > bullet.y
+  );
+}
+
+// Game Info (level and time)
+function drawGameInfo() {
+  // Level display
+  ctx.fillStyle = "#FFFFFF";
+  ctx.font = "30px Arial";
+  ctx.textAlign = "left";
+  ctx.fillText("Level: " + level, 20, 40);
+
+  // Time survived display
+  const timeFormatted = ((Date.now() - startTime) / 1000).toFixed(2); // Calculate total time survived
+  ctx.fillText(
+    "Time Survived: " + timeFormatted + " sec",
+    canvas.width - 400,
+    canvas.height - 20
+  );
+}
+
+// Game loop
+function gameLoop() {
+  if (!player.isAlive) {
+    // Game Over screen
+    ctx.fillStyle = "#EC7B77";
+    ctx.font = "100px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText("Meat Nightmare", canvas.width / 2, canvas.height / 2);
+
+    retryButton.style.display = "block";
+    return;
+  }
+
+  // Level difficulty changes
+  const currentTime = Date.now();
+  if (currentTime - lastLevelChangeTime >= levelChangeTime) {
+    level++;
+    bulletSpeed += 1; // Increase bullet speed.
+    player.width *= 1.1; // Part of the below
+    player.height *= 1.1; // Increase player size by 10% with each level
+    lastLevelChangeTime = currentTime; // Reset the level timer for difficulty change
+  }
+
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Update and draw bullets
+  bullets.forEach((bullet, index) => {
+    bullet.move();
+    bullet.draw();
+
+    // Remove bullet if it's off-screen
+    if (bullet.isOffScreen()) {
+      bullets.splice(index, 1);
+    }
+
+    // Check collision
+    if (isColliding(player, bullet)) {
+      player.isAlive = false;
+    }
+  });
+
+  // Spawn new bullets at regular intervals
+  if (frameCount % BULLET_FREQUENCY === 0) {
+    spawnBullet();
+  }
+
+  // Update frame count
+  frameCount++;
+
+  // Draw level and time info
+  drawGameInfo();
+
+  // Draw player
+  player.draw();
+
+  // Request the next frame
+  requestAnimationFrame(gameLoop);
+}
+
+retryButton.addEventListener("click", () => {
+  // Reset game state
+  player.x = canvas.width / 2;
+  player.y = canvas.height - 50;
+  player.width = basePlayerSize;
+  player.height = basePlayerSize;
+  player.isAlive = true;
+  bullets = [];
+  frameCount = 0;
+  level = 0;
+  bulletSpeed = 4;
+
+  // Hide retry button
+  retryButton.style.display = "none";
+
+  // Restart game
+  startTime = Date.now(); //Reset the start time to the new game start
+  lastLevelChangeTime = Date.now(); // Reset the level timer
+  gameLoop();
+});
+
+// Start the game
+gameLoop();
