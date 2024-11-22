@@ -1,6 +1,7 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const retryButton = document.getElementById("retryButton");
+const gameDescription = document.getElementById("gameDescription");
 
 // Meat png
 const meatImage = new Image();
@@ -70,7 +71,7 @@ class Bullet {
     this.x = x;
     this.y = y;
     this.size = 30; // Constant bullet size
-    this.color = "#D90802";
+    this.color = "#C0C0C0";
   }
 
   move() {
@@ -228,6 +229,9 @@ retryButton.addEventListener("click", () => {
   startTime = Date.now(); //Reset the start time to the new game start
   lastLevelChangeTime = Date.now(); // Reset the level timer
   gameLoop();
+
+  // Hide the description when the game starts
+  gameDescription.style.display = "none";
 });
 
 // Start the game

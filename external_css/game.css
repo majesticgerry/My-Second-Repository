@@ -20,3 +20,24 @@ button {
     font-size: 20px;
     cursor: pointer;
 }
+
+#gameDescription {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+#gameDescription h1 {
+    font-size: 36px;
+}
+
+#gameDescription p {
+    font-size: 20px;
+}
